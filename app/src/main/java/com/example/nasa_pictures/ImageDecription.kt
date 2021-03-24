@@ -19,6 +19,7 @@ class ImageDecription : Fragment(R.layout.fragment_image_description) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         tvTitle.text = args.ImageDetails.title
+        tvDate.text = args.ImageDetails.date
         Glide.with(context).load(args.ImageDetails.url).into(ivSecondFrag);
     }
 
