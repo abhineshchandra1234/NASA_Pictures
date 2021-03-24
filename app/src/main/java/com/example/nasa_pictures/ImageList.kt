@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nasa_pictures.ImageDetails.ImageDetails
 import com.google.gson.Gson
@@ -22,13 +23,17 @@ class ImageList : Fragment(R.layout.fragment_image_list) {
 
     var imageList = mutableListOf<ImageDetails>()
     private lateinit var adapter: ImageListAdapter
+    private var gridLayoutManager: GridLayoutManager?= null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         //Adapter
         adapter = ImageListAdapter()
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        //recyclerView.layoutManager = LinearLayoutManager(context)
+
+        gridLayoutManager = GridLayoutManager(context,3, LinearLayoutManager.VERTICAL,false)
+        recyclerView?.layoutManager = gridLayoutManager
 
         val fileInString: String =
             context?.assets?.open("data.json")?.bufferedReader().use { it?.readText().toString() }
