@@ -16,9 +16,9 @@
     </fragment>
     <fragment
         android:id="@+id/imageDetails"
-        android:name="com.example.nasa_pictures.ImageDetails"
+        android:name="com.example.nasa_pictures.ImageDecription"
         android:label="fragment_image_details"
-        tools:layout="@layout/fragment_image_details" >
+        tools:layout="@layout/fragment_image_description" >
         <action
             android:id="@+id/action_imageDetails_to_imageList"
             app:destination="@id/imageList" />
