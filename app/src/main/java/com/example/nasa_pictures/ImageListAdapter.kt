@@ -34,7 +34,7 @@ class ImageListAdapter: RecyclerView.Adapter<ImageListAdapter.MyViewHolder>() {
 
 //        holder.itemView.imageView.setImageResource(R.mipmap.ic_launcher)
 
-        Glide.with(holder.itemView.context).load("https://apod.nasa.gov/apod/image/1912/M94_Hubble_960.jpg").into(holder.itemView.imageView);
+        Glide.with(holder.itemView.context).load(currentImage.url).into(holder.itemView.imageView);
     }
 
     override fun getItemCount(): Int {

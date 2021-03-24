@@ -53,7 +53,7 @@ class ImageList : Fragment(R.layout.fragment_image_list) {
             var service_version  = jsonobject.getString("service_version")
             var title  = jsonobject.getString("title")
             var url  = jsonobject.getString("url")
-            val imageInfo = ImageDetails("copyright","date","explanation","hdurl","media_type","service_version","title","url")
+            val imageInfo = ImageDetails(copyright, date, explanation, hdurl, media_type, service_version, title, url)
             imageList.add(imageInfo)
         }
         Log.d("Main", "Image list is $imageList")
