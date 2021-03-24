@@ -1,5 +1,9 @@
 package com.example.nasa_pictures.ImageDetails
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class ImageDetails(
     val copyright: String,
     val date: String,
@@ -9,4 +13,4 @@ data class ImageDetails(
     val service_version: String,
     val title: String,
     val url: String
-)
+) :Parcelable

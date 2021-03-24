@@ -22,5 +22,4 @@ class ImageList : Fragment(R.layout.fragment_image_list) {
 
 
 
-
 }
