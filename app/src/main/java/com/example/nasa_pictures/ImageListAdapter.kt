@@ -8,7 +8,7 @@ import com.example.nasa_pictures.ImageDetails.ImageDetails
 
 class ImageListAdapter: RecyclerView.Adapter<ImageListAdapter.MyViewHolder>() {
 
-    var imageList = mutableListOf<ImageDetails>()
+    var imageList = emptyList<ImageDetails>()
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)  {
 
@@ -25,5 +25,10 @@ class ImageListAdapter: RecyclerView.Adapter<ImageListAdapter.MyViewHolder>() {
 
     override fun getItemCount(): Int {
         return imageList.size
+    }
+
+    fun setData(image: List<ImageDetails>) {
+        imageList  = image
+        notifyDataSetChanged()
     }
 }
