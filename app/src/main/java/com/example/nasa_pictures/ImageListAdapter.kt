@@ -3,6 +3,7 @@ package com.example.nasa_pictures
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.nasa_pictures.ImageDetails.ImageDetails
@@ -14,6 +15,14 @@ class ImageListAdapter: RecyclerView.Adapter<ImageListAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)  {
 
+        init {
+            itemView.imageView.setOnClickListener {
+                val position = adapterPosition
+
+                val action = ImageListDirections.actionImageListToImageDetails(imageList[position])
+                itemView.findNavController().navigate(action)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageListAdapter.MyViewHolder {

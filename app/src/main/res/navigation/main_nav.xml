@@ -22,5 +22,8 @@
         <action
             android:id="@+id/action_imageDetails_to_imageList"
             app:destination="@id/imageList" />
+        <argument
+            android:name="ImageDetails"
+            app:argType="com.example.nasa_pictures.ImageDetails.ImageDetails" />
     </fragment>
 </navigation>

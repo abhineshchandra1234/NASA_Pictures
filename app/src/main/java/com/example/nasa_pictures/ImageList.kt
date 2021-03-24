@@ -42,8 +42,17 @@ class ImageList : Fragment(R.layout.fragment_image_list) {
         for (i in 0 until jsonarray.length()) {
             val jsonobject = jsonarray.getJSONObject(i)
             Log.d("Main", "date is ${jsonobject}")
-            var url  = jsonobject.getString("url")
+            var copyright = "null"
+            if (jsonobject.has("copyright")) {
+                copyright = jsonobject.getString("copyright")
+            }
+            var date  = jsonobject.getString("date")
+            var explanation  = jsonobject.getString("explanation")
+            var hdurl  = jsonobject.getString("hdurl")
+            var media_type  = jsonobject.getString("media_type")
+            var service_version  = jsonobject.getString("service_version")
             var title  = jsonobject.getString("title")
+            var url  = jsonobject.getString("url")
             val imageInfo = ImageDetails("copyright","date","explanation","hdurl","media_type","service_version","title","url")
             imageList.add(imageInfo)
         }
