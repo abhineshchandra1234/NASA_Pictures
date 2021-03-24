@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nasa_pictures.ImageDetails.ImageDetails
+import kotlinx.android.synthetic.main.recycler_item.view.*
 
 class ImageListAdapter: RecyclerView.Adapter<ImageListAdapter.MyViewHolder>() {
 
@@ -21,6 +22,7 @@ class ImageListAdapter: RecyclerView.Adapter<ImageListAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentImage = imageList[position]
 
+        holder.itemView.imageView.setImageResource(R.mipmap.ic_launcher)
     }
 
     override fun getItemCount(): Int {

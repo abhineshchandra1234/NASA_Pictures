@@ -8,15 +8,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.nasa_pictures.ImageDetails.ImageDetails
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.fragment_image_list.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
+import kotlin.math.log
 
 
 class ImageList : Fragment(R.layout.fragment_image_list) {
 
+    var imageList = mutableListOf<ImageDetails>()
+    private lateinit var adapter: ImageListAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        //Adapter
+        adapter = ImageListAdapter()
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
+
         val fileInString: String =
             context?.assets?.open("data.json")?.bufferedReader().use { it?.readText().toString() }
 
@@ -24,7 +37,13 @@ class ImageList : Fragment(R.layout.fragment_image_list) {
         for (i in 0 until jsonarray.length()) {
             val jsonobject = jsonarray.getJSONObject(i)
             Log.d("Main", "date is ${jsonobject}")
+            var url  = jsonobject.getString("url")
+            var title  = jsonobject.getString("title")
+            val imageInfo = ImageDetails("copyright","date","explanation","hdurl","media_type","service_version","title","url")
+            imageList.add(imageInfo)
         }
+        Log.d("Main", "Image list is $imageList")
+        adapter.setData(imageList)
 
 
 
