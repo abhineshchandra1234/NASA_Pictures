@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.nasa_pictures.ImageDetails.ImageDetails
 import kotlinx.android.synthetic.main.recycler_item.view.*
 
@@ -22,7 +23,9 @@ class ImageListAdapter: RecyclerView.Adapter<ImageListAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentImage = imageList[position]
 
-        holder.itemView.imageView.setImageResource(R.mipmap.ic_launcher)
+//        holder.itemView.imageView.setImageResource(R.mipmap.ic_launcher)
+
+        Glide.with(holder.itemView.context).load("https://apod.nasa.gov/apod/image/1912/M94_Hubble_960.jpg").into(holder.itemView.imageView);
     }
 
     override fun getItemCount(): Int {
