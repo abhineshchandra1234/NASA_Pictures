@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/imageList"
         android:name="com.example.nasa_pictures.ImageList"
-        android:label="fragment_image_list"
+        android:label="Image View"
         tools:layout="@layout/fragment_image_list" >
         <action
             android:id="@+id/action_imageList_to_imageDetails"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/imageDetails"
         android:name="com.example.nasa_pictures.ImageDecription"
-        android:label="fragment_image_details"
+        android:label="Image Details"
         tools:layout="@layout/fragment_image_description" >
         <action
             android:id="@+id/action_imageDetails_to_imageList"
